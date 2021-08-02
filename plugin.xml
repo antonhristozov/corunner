@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="corunner.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="corunner.commands.category"
+            name="Schedulability Analysis of Tasks with Co-Runner Dependent Execution Times with Gurobi Solver"
+            id="corunner.commands.sampleCommandGRB">
+      </command>
+      <command
+            categoryId="corunner.commands.category"
+            name="Schedulability Analysis of Tasks with Co-Runner Dependent Execution Times with Internal Solver"
+            id="corunner.commands.sampleCommandINT">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="corunner.handlers.corunnerhandlerGRB"
+            commandId="corunner.commands.sampleCommandGRB">
+      </handler>
+      <handler
+            class="corunner.handlers.corunnerhandlerINT"
+            commandId="corunner.commands.sampleCommandINT">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="corunner.commands.sampleCommandGRB"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+      <key
+            commandId="corunner.commands.sampleCommandINT"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+7">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="corunner.menus.sampleMenu"
+               label="Multicore Analysis"
+               mnemonic="M">
+            <command
+                  commandId="corunner.commands.sampleCommandGRB"
+                  id="corunner.menus.sampleCommandGRB"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="corunner.menus.sampleMenu"
+               label="Multicore Analysis"
+               mnemonic="M">
+            <command
+                  commandId="corunner.commands.sampleCommandINT"
+                  id="corunner.menus.sampleCommandINT"
+                  mnemonic="T">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="corunner.toolbars.sampleToolbar">
+            <command
+                  id="corunner.toolbars.sampleCommandGRB"
+                  commandId="corunner.commands.sampleCommandGRB"
+                  icon="icons/sample.png"
+                  tooltip="CO-Runner GRB">
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="corunner.toolbars.sampleToolbar">
+            <command
+                  id="corunner.toolbars.sampleCommandINT"
+                  commandId="corunner.commands.sampleCommandINT"
+                  icon="icons/sample.png"
+                  tooltip="CO-Runner INT">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
