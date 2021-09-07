@@ -56,10 +56,10 @@ public
          Priority                 =>       3;
          Period                   =>     5080 ms;
          Deadline                 =>      515 ms;
+         corunnerinfopropertyset::taskid => "mythread1.imp";
          Compute_Execution_Time   =>  5 ms..5 ms;
-         corunnerinfopropertyset::taskid => "task1";
          corunnerinfopropertyset::pd     => 0.05;
-         corunnerinfopropertyset::corunnerstring => "[[[task3],0.727217]]";
+         corunnerinfopropertyset::corunnerstring => "[[[mythread3.imp],0.727217]]";
     end mythread1.imp;
 
     thread mythread2
@@ -70,10 +70,10 @@ public
         Priority                 =>          1;
         Period                   =>   28734 ms;
         Deadline                 =>   14147 ms;
+        corunnerinfopropertyset::taskid => "mythread2.imp";        
         Compute_Execution_Time   => 40 ms..40 ms;
-        corunnerinfopropertyset::taskid => "task2";
         corunnerinfopropertyset::pd     => 0.05;
-        corunnerinfopropertyset::corunnerstring => "[[[task3],0.616589]]";
+        corunnerinfopropertyset::corunnerstring => "[[[mythread3.imp],0.616589]]";
     end mythread2.imp;
 
     thread mythread3
@@ -84,10 +84,10 @@ public
          Priority                 =>       2;
          Period                   =>     2319 ms;
          Deadline                 =>     1232 ms;
+         corunnerinfopropertyset::taskid => "mythread3.imp";         
          Compute_Execution_Time   =>  40 ms..40 ms;
-         corunnerinfopropertyset::taskid => "task3";
          corunnerinfopropertyset::pd     => 0.05;
-         corunnerinfopropertyset::corunnerstring => "[[[task1],0.965866],[[task2],0.915646]]";
+         corunnerinfopropertyset::corunnerstring => "[[[mythread1.imp],0.965866],[[mythread2.imp],0.915646]]";
     end mythread3.imp;
 
 end mypakwithtaskset;
