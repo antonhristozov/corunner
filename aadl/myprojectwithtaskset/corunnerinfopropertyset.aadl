@@ -1,5 +1,4 @@
 property set corunnerinfopropertyset is	
-	taskid         : aadlString  applies to (thread);
     pd             : aadlreal    applies to (thread);
     corunnerstring : aadlString  applies to (thread);
 end corunnerinfopropertyset;
