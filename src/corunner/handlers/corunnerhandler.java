@@ -148,24 +148,31 @@ public class corunnerhandler extends AaxlReadOnlyHandlerAsJob {
 
 		System.out.println("Start OptionalTaskidString fetch");
 //		System.exit(-1);
-
+		/*
+		 * for (int i = 1; i <= javaschedanalysiscorunner.ntasks; i++) {
+		 * System.out.println("Inside OptionalTaskidString fetch");
+		 * // System.exit(-1);
+		 * OptionalTaskidString = getTaskidString(allThreads.get(i - 1));
+		 * System.out.println("OptionalTaskidString");
+		 * System.out.println(OptionalTaskidString);
+		 * // System.exit(-1);
+		 * if (!OptionalTaskidString.isPresent()) {
+		 * System.out.println("For task " + i + ", there is no taskid string given.");
+		 * } else {
+		 * TaskidString = OptionalTaskidString.get();
+		 * System.out.println("TaskidString");
+		 * System.out.println(TaskidString);
+		 * thread_names[i - 1] = new String(TaskidString);
+		 * // System.exit(-1);
+		 * theTaskIdStringandIdList.add(new TaskIdStringandId(TaskidString, i));
+		 * }
+		 * }
+		 */
 		for (int i = 1; i <= javaschedanalysiscorunner.ntasks; i++) {
-			System.out.println("Inside OptionalTaskidString fetch");
-//			System.exit(-1);
-			OptionalTaskidString = getTaskidString(allThreads.get(i - 1));
-			System.out.println("OptionalTaskidString");
-			System.out.println(OptionalTaskidString);
-//			System.exit(-1);
-			if (!OptionalTaskidString.isPresent()) {
-				System.out.println("For task " + i + ", there is no taskid string given.");
-			} else {
-				TaskidString = OptionalTaskidString.get();
-				System.out.println("TaskidString");
-				System.out.println(TaskidString);
-				thread_names[i - 1] = new String(TaskidString);
-//				System.exit(-1);
-				theTaskIdStringandIdList.add(new TaskIdStringandId(TaskidString, i));
-			}
+			TaskidString = allThreads.get(i - 1).getName();
+			System.out.println("  TaskIdString = " + TaskidString);
+			thread_names[i - 1] = new String(TaskidString);
+			theTaskIdStringandIdList.add(new TaskIdStringandId(TaskidString, i));
 		}
 
 		OptionalLong OptionalPriority;
